@@ -39,6 +39,16 @@ public class SystemPrintLogger implements ILogger {
 	}
 
 	@Override
+	public void fine(Throwable thrown) {
+		System.out.println("FINE " + thrown.getMessage());
+	}
+
+	@Override
+	public void fine(String message, Throwable thrown) {
+		System.out.println("FINE " + message + " " + thrown.getMessage());
+	}
+
+	@Override
 	public boolean isFineEnabled() {
 		return true;
 	}
@@ -46,6 +56,11 @@ public class SystemPrintLogger implements ILogger {
 	@Override
 	public void info(String message) {
 		System.out.println("INFO " + message);
+	}
+
+	@Override
+	public boolean isInfoEnabled() {
+		return true;
 	}
 
 	@Override
@@ -61,6 +76,11 @@ public class SystemPrintLogger implements ILogger {
 	@Override
 	public void warning(String message, Throwable thrown) {
 		System.out.println("WARNING " + message + " " + thrown.getMessage());
+	}
+
+	@Override
+	public boolean isWarningEnabled() {
+		return true;
 	}
 
 	@Override
